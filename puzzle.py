@@ -2,6 +2,7 @@
 
 """
 
+
 def check_rows(board: list):
     """
     Checks rows
@@ -21,11 +22,11 @@ def check_columns(board: list):
     """
     Checks columns
 
-    >>> check_columns(["***1 ****", "**  3****"])
-    True
+    >>> check_columns(["***1 ****", "** 13****"])
+    False
     """
     inverse_board = []
-    for index in range(7):
+    for index in range(9):
         temp = ""
         for line in board:
             temp += line[index]
@@ -46,7 +47,7 @@ def check_colour(board: list):
         for line in range(9-index):
             if board[line][index] != '*' and board[line][index] != ' ':
                 temp.append(board[line][index])
-        for number in board[8-index][1:]:
+        for number in board[8-index][index+1:]:
             if number != '*' and number != ' ':
                 temp.append(number)
         if len(set(temp)) != len(temp):
