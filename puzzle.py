@@ -21,7 +21,7 @@ def check_rows(board: list):
     return True
 
 
-def check_columns(board: str):
+def check_columns(board: list):
     inverse_board = []
     for index in range(7):
         temp = ""
@@ -45,8 +45,8 @@ def check_colour(board: list):
     return True
 
 
-def validate_board(board: str):
+def validate_board(board: list):
     """
     Checks rules of the game
     """
-    pass
+    return check_rows(board) and check_columns(board) and check_colour(board)
