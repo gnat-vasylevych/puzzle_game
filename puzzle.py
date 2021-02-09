@@ -12,7 +12,7 @@ board = [
  "  8  2***",
  "  2  ****"
 ]
-def check_rows(board: str):
+def check_rows(board: list):
     for line in board:
         line = line.replace('*', '')
         line = line.replace(' ', '')
@@ -31,8 +31,18 @@ def check_columns(board: str):
     return check_rows(inverse_board)
 
 
-def check_colour(board: str):
-    pass
+def check_colour(board: list):
+    for index in range(9):
+        temp = []
+        for line in range(9-index):
+            if board[line][index] != '*' and board[line][index] != ' ':
+                temp.append(board[line][index])
+        for number in board[8-index][1:]:
+            if number != '*' and number != ' ':
+                temp.append(number)
+        if len(set(temp)) != len(temp):
+            return False
+    return True
 
 
 def validate_board(board: str):
