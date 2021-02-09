@@ -13,9 +13,14 @@ board = [
  "  2  ****"
 ]
 def check_rows(board: str):
-    pass
+    for line in board:
+        line = line.replace('*', '')
+        line = line.replace(' ', '')
+        if len(set(line)) != len(line):
+            return False
+    return True
 
-
+print(check_rows(board))
 def check_columns(board: str):
     pass
 
