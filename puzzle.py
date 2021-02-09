@@ -20,9 +20,15 @@ def check_rows(board: str):
             return False
     return True
 
-print(check_rows(board))
+
 def check_columns(board: str):
-    pass
+    inverse_board = []
+    for index in range(7):
+        temp = ""
+        for line in board:
+            temp += line[index]
+        inverse_board.append(temp)
+    return check_rows(inverse_board)
 
 
 def check_colour(board: str):
